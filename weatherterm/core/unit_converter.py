@@ -24,6 +24,7 @@ class UnitConverter:
 
 	def convert(self, temp):
 
+		#Convert to float
 		try:
 			temperature = float(temp)
 		except ValueError:
@@ -39,6 +40,9 @@ class UnitConverter:
 		return self._format_results(result)
 
 	def _format_results(self, value):
+		'''
+		Checks if the number is an integer; the value.is_integer() will return True if the number is, for example, 10.0. If True, we will use the int function to convert the value to 10; otherwise, the value is returned as a fixedpoint number with a precision of 1.
+		'''
 		return int(value) if value.is_integer() else f'{value:.1f}'
 
 	def _to_celsius(self, fahrenheit_temp):
